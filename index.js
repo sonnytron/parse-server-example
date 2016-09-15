@@ -22,7 +22,7 @@ if (!databaseUri) {
 // }
 
 
-var s3Options = {directAccess : false,
+var s3Options = {directAccess : true,
   region: "us-west-2",
 }
 
@@ -32,7 +32,7 @@ var api = new ParseServer({
   appId: process.env.APP_ID || 'myAppId',
   masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
-  filesAdapter: new S3Adapter("AKIAI4FLSWXHLK5WPFCA", "NASIuXA17+DwYQyg7KE0lCZFZ76H9EggmiJXTi5F", "tvmanifest", s3Options),
+  filesAdapter: new S3Adapter(process.env.S3_ACCESS_KEY, process.env.S3_SECRET_KEY, process.env.S3_BUCKET, s3Options),
   liveQuery: {
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
   }
