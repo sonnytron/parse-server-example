@@ -22,7 +22,7 @@ if (!databaseUri) {
 // }
 
 
-var s3Options = {directAccess : true,
+var s3Options = {directAccess : false,
   region: "us-west-2",
 }
 
