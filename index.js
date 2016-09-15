@@ -16,6 +16,7 @@ var s3Options = {
   "bucket": "tvmanifest",
   "accessKey": "AKIAI4FLSWXHLK5WPFCA",
   "secretKey": "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",
+  "signatureVersion": "v4",
   "directAccess": true
 }
 
