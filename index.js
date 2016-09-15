@@ -17,6 +17,7 @@ var s3Options = {
   "accessKey": "AKIAI4FLSWXHLK5WPFCA",
   "secretKey": "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",
   "signatureVersion": "v4",
+  "region" : "us-east-1"
   "directAccess": true
 }
 
