@@ -12,13 +12,18 @@ if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
 }
 
-var s3Options = {
-  "bucket": "tvmanifest",
-  "accessKey": "AKIAI4FLSWXHLK5WPFCA",
-  "secretKey": "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",
-  "signatureVersion": "v4",
-  "region" : "us-west-2",
-  "directAccess": false
+// var s3Options = {
+//   "bucket": "tvmanifest",
+//   "accessKey": "AKIAI4FLSWXHLK5WPFCA",
+//   "secretKey": "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",
+//   {
+//     directAccess: false
+//   },
+// }
+
+
+var s3Options = {directAccess : false,
+  region: "us-west-2",
 }
 
 var api = new ParseServer({
@@ -27,7 +32,7 @@ var api = new ParseServer({
   appId: process.env.APP_ID || 'myAppId',
   masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
-  filesAdapter: new S3Adapter(s3Options),
+  filesAdapter: new S3Adapter("AKIAI4FLSWXHLK5WPFCA", "NASIuXA17+DwYQyg7KE0lCZFZ76H9EggmiJXTi5F", "tvmanifest", s3Options),
   liveQuery: {
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
   }
